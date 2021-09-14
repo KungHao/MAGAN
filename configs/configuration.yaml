@@ -1,0 +1,43 @@
+# meta
+exp_name: cartoon\MAGAN_alexnet(F)-facecolor
+mode: train
+cuda: true
+ngpu: 1
+multi_discriminator: true
+
+# data
+dataset: cartoon
+data_root: D:/James/Jupyter/datasets/cartoon/
+ad_path: D:/James/Jupyter/Image-Classification-pytorch/experiments/checkpoints/
+ad_checkpoint: _cartoon-AlexNet.pkl
+crop_size: 400
+image_size: 224
+
+# model
+g_conv_dim: 64
+d_conv_dim: 64
+d_fc_dim: 1024
+g_layers: 5
+d_layers: 5
+shortcut_layers: 3
+attrs: [Black_Hair, Brown_Hair, Orange_Hair, Blond_Hair, Yellow_Hair, Black_Face, White_Face]
+checkpoint: ~
+
+# training
+batch_size: 4
+beta1: 0.5
+beta2: 0.999
+g_lr: 0.0002
+d_lr: 0.0002
+n_critic: 5
+lambda_gp: 10
+lambda1: 1 # cls for D
+lambda_cls: 200  # cls
+lambda_rec: 100 # reconst
+max_iters: 100000
+lr_decay_iters: 80000
+
+# steps:
+summary_step: 500
+sample_step: 2000
+checkpoint_step: 10000

@@ -1,0 +1,1 @@
+from .magan import MAGANAgent
